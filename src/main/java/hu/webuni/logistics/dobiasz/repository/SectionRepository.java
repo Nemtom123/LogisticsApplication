@@ -14,7 +14,7 @@ public interface SectionRepository extends JpaRepository<Section, Long>{
 	@Query("SELECT s FROM Section s WHERE s.transport_plan_id = :transportPlanId AND s.from_milestone.id = :milestoneId OR s.to_milestone.id = :milestoneId")
 	List<Section> findByTransportPlanAndMilestone(long transportPlanId, long milestoneId);
 
-	@Query("SELECT s FROM Section s WHERE s.transport_plan_id = :transportPlanId  s.number = :number")
+	@Query("SELECT s FROM Section s WHERE s.transport_plan_id = :transportPlanId AND s.number = :number")
 	Optional<Section> findByTransportPlanIdAndNumber(long transportPlanId, int number);
 
 	@Query("SELECT s FROM Section s WHERE s.from_milestone.id = :milestoneId OR s.to_milestone.id = :milestoneId")
