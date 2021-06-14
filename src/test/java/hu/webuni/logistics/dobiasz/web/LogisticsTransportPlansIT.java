@@ -68,19 +68,6 @@ public class LogisticsTransportPlansIT {
 		loginWithJwtNotOk("baduser", "passAdmin");
 	}
 
-	
-	private String loginAddressUser() {
-		return loginWithJwtOk("addressUser", "passAddress");
-		}
-
-	private String loginTransportUser() {
-		return loginWithJwtOk("transportUser", "passTransport");
-		}
-
-	private String loginAdminUser() {
-		return loginWithJwtOk("admin", "passAdmin");
-	}
-
 	private String loginWithJwtOk(String username, String password) {
 		LoginDto loginDto = new LoginDto(username, password);
 		return webTestClient
