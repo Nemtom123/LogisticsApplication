@@ -18,7 +18,6 @@ import hu.webuni.logistics.dobiasz.repository.TrasportPlanRepository;
 public class TransportPlanService {
 	
 	@Autowired
-	static
 	TrasportPlanRepository transportPlanRepository;
 	
 	@Autowired 
@@ -37,13 +36,13 @@ public class TransportPlanService {
 	public Optional<TransportPlan> findById(long id) {
 		return transportPlanRepository.findById(id);
 	}
-	
+
 	@Transactional
-	public static TransportPlan addNewTransportPlan(TransportPlan transportPlan) {
-		TransportPlan newTransportPlan = transportPlanRepository.save(transportPlan);
+	public TransportPlan addNewTransportPlan(TransportPlan transportPlan) {
+		TransportPlan newTransportPlan= transportPlanRepository.save(transportPlan);
 		newTransportPlan.getSection().stream().forEach(s -> s.setTransportPlan(newTransportPlan));
 		return newTransportPlan;
-		
+
 	}
 	
 	@Transactional
